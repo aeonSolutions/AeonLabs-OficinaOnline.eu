@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="../stylesheets/DlgHolder.css">
+<!-- dialog box holder-->
+<div id="DlgConnect" class="voids-shell dlg-box dlg-center-screen ">
+	<div id="WindowClose">
+		<a href="#" onclick="javascript: CloseWindowPopUp();" title="Fechar">
+		<div class="DlgImgBtnClose">
+		&nbsp;
+		</div>
+		
+		</a>
+	</div>
+	<div class="stripped" >
+		<div class="stripped-left" style="display: inline-block; ">
+			<img src="{image}" alt="" height="40px" width="40px" />
+		</div>
+		<div class="stripped-right" style="display: inline-block; width: -webkit-calc(100% - 45px);">{message}</div>
+	</div>
+<div class="stripped" >
+		{quote}
+</div>
+
+</div>
+<!-- end of dialog box holder-->
+<script type="text/javascript">
+	if (document.getElementById('PageMask')) {
+		document.getElementById('PageMask').style.visibility='visible';
+	}
+	
+	function CloseWindowPopUp() {
+	if (document.getElementById('PageMask')) {
+		document.getElementById('PageMask').style.visibility='none';
+		document.getElementById('Dialogs').innerHTML='&nbsp';		
+	}
+
+	};
+	
+	/////////////////////////////////////////////////////////////////////////||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\	
+</script>

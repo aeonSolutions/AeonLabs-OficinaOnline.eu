@@ -1,0 +1,12 @@
+<?php
+// daily strings to hash on authoring
+$key['auth'][0]='';  
+$key['auth'][1]='';  
+$key['auth'][2]='';  
+$key['auth'][3]='';  
+$key['auth'][4]='';  
+$key['auth'][5]='';  
+$key['auth'][6]='';  
+$key['auth'][7]='';  
+$key['auth'][8]='';  
+?>

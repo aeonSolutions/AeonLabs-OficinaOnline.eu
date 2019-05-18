@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="../stylesheets/DlgHolder.css">
+
+<!-- dialog box holder-->
+<div id="DlgConnect" class="voids-shell dlg-box dlg-center-screen ">
+	<div id="WindowClose">
+		<a href="#" onclick="javascript: CloseDlgBox();" title="Fechar">
+		<div class="DlgImgBtnClose">
+		&nbsp;
+		</div>
+		
+		</a>
+	</div>
+	<div class="stripped" >
+		<div id="PhotoPlaceholderBox" class="stripped-left" style="display: inline-block; ">
+			<img class="PhotoPlaceholder" src="{photo}" alt="" height="100px" width="100px" />
+		</div>
+		<div class="stripped-right" style="display: inline-block;width: -webkit-calc(100% - 120px);">
+			ContactID&nbsp;</br>
+			<input type="text" id="ContactID" class="DlgInput"value="{contactID}" placeholder="número de contacto na Internet" />
+			{details}
+		</div>
+	</div>
+	<div class="stripped" >
+		Chave de Acesso&nbsp;</br>
+		<textarea id="TokenID" class="contactIDToken" placeholder="copie para aqui a chave de acesso. Lembre-se que tem que ter mais de 100 characteres alfanúmericose não só"></textarea>
+	</div>
+	<div id="Errors" style="margin-top: -15px;"><small style="color: red;">&nbsp;{errors}</small></div>
+	<div style="margin-left: 50px; margin-top: 0px;" class="g-recaptcha" data-sitekey="6LdYhR8TAAAAAJNdz8ocmgdPh3C1maHmNBgFSAwZ"></div>
+	<div class="Dlg-Imgbtn" onclick="javascript:AjxSendAuth();"></div><img style="margin-left:0px; margin-top:0px; height: 10px;" src="../resources/authoring/graphics/socialConnect.png"  alt="" />
+</div>
+<!-- end of dialog box holder-->
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="../js/md5.lib.js"></script>

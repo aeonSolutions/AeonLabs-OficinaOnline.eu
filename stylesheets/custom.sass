@@ -1,0 +1,146 @@
+#SearchEdit
+	padding-right: 10px
+	padding-left: 10px
+	padding-top: 5px 
+	padding-bottom: 5px
+	background-color: #dedede
+	color: black
+	border-radius: 3px
+	margin-top: 0px
+	margin-left: 0px
+	font: 200 14px/0.875 "SanFrancisco"
+	text-shadow: none
+	width: auto	
+	&:hover
+		background-color: black
+		opacity: 0.5
+		color: white
+	&:active
+		background-color: black
+		opacity: 0.5
+		color: white
+#SearchEdit a
+	text-decoration: none
+	text-shadow: none
+	color:  #5A5A5A
+	&:active
+		color:  #5A5A5A
+	&:hover
+		color: #FFFFFF	
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+.stripped
+	margin: 0px 0px 0px 0px
+	padding: 1px 1px 1px 1px
+	display: inline-block
+	width: 99.6%
+	
+.stripped-left
+	margin: 0px 0px 0px 0px
+	padding: 0px 0px 0px 0px
+	display: inline-block
+	float: left
+
+.stripped-right
+	margin: 0px 0px 0px 0px
+	padding: 0px 0px 0px 0px
+	display: inline-block
+	float: right
+	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.AdvOpt-compat
+	margin-left: -40px
+	margin-right: -40px
+	padding-left: 40px
+	padding-right: 40px
+
+.AdvOpt-SelectionBox
+	position: float
+	width: 99.8%
+	padding: 0px 0px 0px 0px
+	border-bottom: 1px solid #cccccc
+	background-color: white
+
+.AdvOpt-selection-wrapper
+	text-shadow: none
+	background-color: white
+
+
+.AdvOpt-selection-wrapper a
+	display: inline-block
+	height: 10px
+	cursor: pointer
+	text-decoration: none
+
+.AdvOpt-slider
+	position: float
+	display: block
+	width: 100%
+	overflow-y: hidden
+	max-height: 1500px
+	transition-property: all
+	transition-duration: .5s
+	transition-timing-function: cubic-bezier(0.42, 0.0, 1.0, 1.0)
+	background-color: white
+
+.AdvOpt-slider.closed
+	max-height: 0
+	transition-property: all
+	transition-duration: .5s
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1)
+
+.AdvOpt-selection-label 
+	display: inline-block
+	height: 10px
+	width: 10px
+	cursor: pointer
+	background-image: url(../images/3angleRside.png)
+	background-size: 10px 10px
+	margin-right: 0px
+
+.help-selection-label 
+	display: inline-block
+	height: 20px
+	width: 20px
+	cursor: pointer
+	background-image: url(../images/questionMarkBlue.png)
+	background-size: 20px 20px
+	margin-right: 0px
+
+////////////////////////////////////////////////////////////////////////||||||||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\	
+//tabs
+#click-AdvOpt
+	display: none
+
+#click-AdvOpt:checked + .AdvOpt-selection-label
+	background-image: url(../images/3angleDown.png)
+	width: 10px
+	height: 10px
+	background-size: 10px 10px
+	
+//tabs
+#click-Help, #click-Help2, #click-Help3
+	display: none
+
+#click-Help2:checked + .help-selection-label, #click-Help:checked + .help-selection-label, #click-Help3:checked + .help-selection-label
+	background-image: url(../images/checkMarkGreen.png)
+	width: 20px
+	height: 20px
+	background-size: 20px 20px
+	
+	
+////////////////////////////////////////////////////////
+.nolinks
+	text-decoration: none
+	text-shadow: none
+	color:  #5A5A5A
+	&:active
+		color:  #5A5A5A
+	&:hover
+		color: #000000	
+////////////////////////////////////////////////////////
+		
+
+	

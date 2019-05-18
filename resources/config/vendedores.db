@@ -1,0 +1,4 @@
+<?php
+$vendedores['id']=array();
+$vendedores['user']=array();
+?>

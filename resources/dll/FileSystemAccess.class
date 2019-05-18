@@ -1,0 +1,90 @@
+<?php
+/*
+Do not forget: clearstatcache();
+==============================
+
+When ever you make a:
+
+mkdir($dstdir, 0770 ))
+
+or a:
+
+chmod($dstdir, 0774 ); 
+
+You have to call:
+
+clearstatcache();
+
+before you can call:
+
+fileperms($dstdir);
+*/
+
+ class FileSystemAccess {
+
+      private static $FileAddr;
+
+	function __construct() {
+		self::$FileAddr = substr(__FILE__,0,strpos(__FILE__,"resources")); // level 0 file address location (root)
+		
+	}
+	
+	
+	function Doo_Chmod($path, $chmod = null){
+	    if (file_exists($path) === true){
+	    	if (is_null($chmod) === true){
+	    		$chmod = (is_file($path) === true) ? 644 : 755;
+	    		if (in_array(get_current_user(), array('apache', 'httpd', 'nobody', 'system', 'webdaemon', 'www', 'www-data')) === true){
+	    			$chmod += 22;
+	    		}
+	    	}
+	    	return chmod($path, octdec(intval($chmod)));
+	    }
+	    return false;
+	}
+	
+	public static function getFilePermission($file) {
+		clearstatcache();
+	    $length = strlen(decoct(fileperms($file)))-3;
+	    return substr(decoct(fileperms($file)),$length);
+	}
+
+	public static function WritePrermissions($folder) {
+		$writable= array("0777", "0774", "0755");
+		$dir_writable = self::getFilePermission($folder);
+		if (in_array($dir_writable, $writable)):
+			return true;
+		else:
+			return false;
+		endif;
+		
+	}
+
+	public static function WriteFile($filename, $file_content) {
+		ini_set('auto_detect_line_endings', TRUE); 
+		if (file_exists($filename)):
+			unlink($filename);
+		endif;
+		
+		if (file_exists($filename)):
+			$handle = fopen($filename, 'r+');
+		else:
+			fclose(fopen($filename,"x"));
+			$handle = fopen($filename, 'w+');
+		endif;
+		
+		if ($handle===false):
+			return 'unable access to file!';
+			exit;			
+		endif;	
+		if(fwrite($handle, $file_content)==false)://unable to write file
+			return 'unable write to file!';
+			exit;
+		endif;
+		fclose($handle);
+		return false;
+	}//EOF write file
+
+};
+
+?>

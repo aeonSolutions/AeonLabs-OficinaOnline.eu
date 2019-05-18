@@ -1,0 +1,93 @@
+<h2>finalizar o registo</h2>
+<!-- Start Grid -->
+<div class="grid">
+	<div class="eight columns">
+		<div class="stripped-left" style="display: inline-block;">
+			<div class="stripped">
+				<label for="FilePhoto" style="cursor: pointer; display: inline-block;">
+					<div id="PhotoPlaceholderBox" class="stripped-left" >
+						<img class="PhotoPlaceholder" src="{photo}" alt="" height="100px" width="100px" />
+					</div>
+				</label>
+				<div class="stripped-right" style="display: inline-block;width: -webkit-calc(100% - 120px);">
+					ContactID&nbsp;<a href="#">{contactID}</a></br>
+					{details}
+				</div>
+				<div id="fileDrop" class="stripped" style="padding-bottom: 10px;padding-top: 3px;">
+				<form id="SendFileForm" method="post" action="#" enctype="multipart/form-data">
+					<a href="#" style="display: inline-block; color: #333333;" onclick="javascript: CommServer('PA9nJTKVRX1qRydGclYSvewvZPc6qA&delPhoto');"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+						<label for="FilePhoto" style="cursor: pointer; display: inline-block;">
+					        <i class="fa fa-camera" aria-hidden="true"></i>
+						</label>
+					<input type="file" style="display: none;" name="FilePhoto" id="FilePhoto" accept="image/*"  />
+					<input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
+					<input type="submit" name="FileSubmit" id="FileSubmit" style="display: none;" />
+				</form>
+				
+				</div>
+			</div>
+			<div class="stripped">
+					Chave de Acesso&nbsp;</br>
+					<textarea id="TokenID" class="contactIDToken" placeholder="copie para aqui a chave de acesso. Lembre-se que tem que ter mais de 100 characteres alfanúmericos e não só"></textarea>
+				<div id="Errors" style="margin-top: -15px;"><small style="color: red;">&nbsp;{errors}</small></div>
+				<div style="margin-left: 50px; margin-top: 0px;" class="g-recaptcha" data-sitekey="6LdYhR8TAAAAAJNdz8ocmgdPh3C1maHmNBgFSAwZ"></div>
+			</div>		
+		</div>
+		<script src='//www.google.com/recaptcha/api.js'></script>
+		<script src="../../js/md5.lib.js"></script>
+	</div>
+	<div class="eight columns">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- OficinaOnline.eu -->
+		<ins class="adsbygoogle"
+		     style="display:block"
+		     data-ad-client="ca-pub-1137397637659610"
+		     data-ad-slot="9946521684"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+<!-- End Grid -->
+</div>
+<!-- Start Grid -->
+<div class="grid">
+			<!-- start of ms-selection-container-->
+				<div class="AdvOpt-selection-wrapper AdvOpt-compat">
+					<input type="checkbox" id="click-Help" /><label class="help-selection-label" for="click-Help" onclick="document.getElementById('click-Help-contents').classList.toggle('closed');"></label><a href="#help" class="nolinks" style="text-transform: uppercase;" onclick="javascript: HtmlTogglePanel('click-Help');">&nbsp;O que é importante publicitar sobre mim</a>
+				</div>
+				<div id="click-Help-contents" class="AdvOpt-slider closed AdvOpt-compat">
+				<a href="#help"></a>
+				<p>Abaixo descreva quais as funções que assume estar disponível. Comece por indicar quais a marcas de automóveis que consegue dar explicações até aquela peças que ninguém ouviu falar até hoje.
+			</div>
+			<!-- end of ms-selection-container--> 
+	<div class="eight columns">
+			<fieldset>
+				<textarea id="NewSaleUserInput" style="width: 100%; height: 360px; overflow-x: none; overflow-y: scroll; resize: none;" placeholder="coloque aqui o texto que melhor descreve a sua venda"></textarea>
+				<p><small><a href="#" onclick="javascript: CleanAddSale();">Começar de novo</a></small></p>
+				<p style="text-align: right;margin-top: -40px;">
+					<button  onclick="javascript: CommServer('0EWIE3mmuiif2Z5rL4ZNyF1zFjRKEz', ['NewSaleUserInput','UserInputTotal'], 'NewSaleDetails');">Adicionar</button>
+				</p>
+
+			</fieldset>
+	</div>
+	<div class="eight columns">
+				<div id="NewSaleDetails" style="border: 1px solid #333;">
+						<div style="margin: 0 auto; width: 100%; height: 300px; text-align:center; padding-top: 70px;">
+							<p>Comece por descrever as qualidades no atendimento ...</p>
+							<img src="../images/AtendimentoDesign.png" />
+							<p>e marcas de automóveis que é especialista...</p>
+						</div>
+						<input type="hidden" id="UserInputTotal"name="UserInputTotal" value="" />
+				</div>
+	</div>
+
+</div>
+<!-- End Grid -->
+<!-- Start Grid -->
+<div class="grid">
+	<div class="sixteen columns">
+		<div class="Dlg-Imgbtn" onclick="javascript:AjxSendAuth();" title="Gravar"></div><img style="margin-left:0px; margin-top:0px; height: 10px;" src="resources/authoring/graphics/socialConnect.png"  alt="" />
+	</div>
+</div>
+<!-- End Grid -->

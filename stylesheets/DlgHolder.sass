@@ -1,0 +1,185 @@
+@import 'bourbon/bourbon'
+
+$DLG-general-bk: #EFEFEF
+$DLG-general-border: #AAAAAA
+$DLG-area-border: #666666
+
+$DLG-tab-area: #EFEFEF
+$DLG-area-shadow: #C5C5C5
+
+// butons
+$DLG-btn-border: #666666
+$DLG-btn-bk: #FFFFFF
+
+//text color
+$DLG-text: #555555
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+.stripped
+	margin: 0px 0px 0px 0px
+	padding: 1px 1px 1px 1px
+	display: inline-block
+	width: 99.6%
+	
+.stripped-left
+	margin: 0px 0px 0px 0px
+	padding: 0px 0px 0px 0px
+	display: inline-block
+	float: left
+
+.stripped-right
+	margin: 0px 0px 0px 0px
+	padding: 0px 0px 0px 0px
+	display: inline-block
+	float: right
+	
+///////////////////////////////// box where dialogs are loaded on main page \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+#voids-shell
+	margin: 0px 0px 0px 0px
+	padding: 0px 0px 0px 0px
+	display: block
+	width: 99.6%
+
+///////////////////////////////// General Config of Dialogs \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+		
+.dlg-box
+	-moz-box-shadow: 3px 3px 5px 5px $DLG-area-shadow
+	-webkit-box-shadow: 3px 3px 5px 5px $DLG-area-shadow
+	box-shadow: 3px 3px 5px 5px $DLG-area-shadow
+	
+.dlg-center-screen
+	position: fixed
+	top: 50%
+	left: 50%
+	-webkit-transform: translate(-50%, -50%)
+	transform: translate(-50%, -50%)
+
+
+///////////////////////////////// Full Screen Opaque mark for working in background \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+#PageMask
+	position: absolute
+	top: 0px
+	left: 0px
+	width: 100%
+	height: 100%
+	background-color: white
+	opacity: 0.7
+	z-index: 3
+	overflow: hidden
+	visibility: hidden
+
+	///////////////////////////////////////////////// Butons \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+.Dlg-btn
+	border: 1px solid $DLG-btn-border
+	background-color: $DLG-btn-bk
+	font-family: "Arial"
+	font-size: 14px
+	border-radius: 6px
+
+.DlgInput
+	margin: 0px 0px 0px 0px
+	padding: 0px 0px 0px 0px
+.Dlg-Imgbtn
+	display: inline-block
+	width: 30px
+	height: 30px
+	cursor: pointer
+	background-image: url(../resources/authoring/graphics/btnConnect.png)
+	background-size: 30px 30px
+	&:hover
+		background-image: url(../resources/authoring/graphics/btnConnect.pushed.png)
+		background-size: 30px 30px	
+
+.DlgImgBtnClose
+	display: inline-block
+	width: 30px
+	height: 30px
+	cursor: pointer
+	background-image: url(../resources/authoring/graphics/btnClose.png)
+	background-size: 30px 30px
+	&:hover
+		background-image: url(../resources/authoring/graphics/btnClose.pushed.png)
+		background-size: 30px 30px	
+	
+///////////////////////////////////////////////// Connect authoring \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+//text color
+$DLG-width: 450
+$DLG-height: 250
+$DLG-Photo-shadow: #cccccc 
+
+#DlgConnect
+	padding: 5px 5px 5px 5px
+
+	position: fixed
+	top: 50%
+	left: 50%
+
+	width: 400px
+	height: $DLG-height
+	background-color: #eeeeee
+	border: 1px solid gray
+	z-index: 5
+	overflow: none
+
+	margin-top: -($DLG-width/2)
+	margin-left: -($DLG-height/2)
+
+.PhotoPlaceholder
+	border: 3px solid white
+	display: inline-box
+	
+#PhotoPlaceholderBox
+	height: 106px
+	width: 106px
+	border: 3px solid #3A5998
+	border-radius: 3px
+	-moz-box-shadow: 1px 1px 1px 1px $DLG-Photo-shadow
+	-webkit-box-shadow: 1px 1px 1px 1px $DLG-Photo-shadow
+	box-shadow: 1px 1px 1px 1px $DLG-Photo-shadow
+	margin-right: 5px
+	
+.contactIDToken	
+	-webkit-text-security : circle
+	overflow: none
+	overflow-x: none
+	overflow-y: scrool
+	resize: none 
+	height: 40px
+	width: 95%
+	width: -webkit-calc(100% - 15px)
+	width: calc(100% - 15px)
+
+.InputField
+	overflow: none
+	overflow-x: none
+	overflow-y: scrool
+	resize: none 
+	width: 95%
+	width: -webkit-calc(100% - 15px)
+	width: calc(100% - 15px)
+
+#WindowClose
+	float: right
+	position: relative
+	top: 0px
+	right: 0px
+	
+///////////////////////////////////////////////// Progress Bar for Ajax Requests \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+#progress p
+	display: block
+	width: 240px
+	padding: 2px 5px
+	margin: 2px 0
+	border: 1px inset #446
+	border-radius: 5px
+	background: #eee url(../images/progress.png) 100% 0 repeat-y
+	
+#progress p.success
+	background: #0c0 none 0 0 no-repeat
+
+#progress p.failed
+	background: #c00 none 0 0 no-repeat

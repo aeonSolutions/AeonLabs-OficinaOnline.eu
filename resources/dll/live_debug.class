@@ -1,0 +1,120 @@
+<?php
+/* File revision date: 05-Jan-2016 */
+/*
+Error Codes display at runtime:
+	DF - Deleted file
+	WF - Write file
+	CD - create directory
+	CP - copy file
+	SIF($coded) - Start of include file $coded
+	EIF($coded) - end of included file $coded
+	DBo - database already connected
+	DBc- not database connection found to close
+
+
+usage:
+beging of included file
+$live_debug->start_file_debug();
+
+whenever you need in the code add the folloing breakpoint
+$live_debug->breakpoint(__LINE__);
+
+whenever you need in the code add the folloing header reload breakpoint
+$live_debug->header_reload();
+
+end of included file
+$live_debug->end_file_debug(__LINE__);
+
+add later
+
+check included files
+$incFiles = get_included_files(); 
+foreach($incFiles as $inc):
+	echo $inc;
+endforeach;
+    
+check names of classes
+if (!class_exists('database_class')) {
+   exit('Class exists');
+}
+
+*/
+
+class live_debug{
+
+	var $file_line_debug;     // enable or dissable breakpoint debugging 
+	var $headers_reload_debug;     // enable or dissable headers relaod  debugging 
+	var $code;
+	var $file;
+	var $err_code;
+	var $stop_at_bug= false;
+	var $store_bugs= false;
+	var $buffer =array();
+	var $display = true; // true: display as is rendered; false: dipslay all on DivBox
+	
+	function header_reload($link,$line) {
+		if (headers_sent()):
+			echo ' <script> location.replace("'.$link.'"); </script>';
+		    die("Redirect failed. Please click on this link: <a href=".$link.">");
+		    session_write_close();
+		else:
+			if (!$this->file_line_debug):
+				ob_end_flush();
+			endif;
+			if ($this->stop_at_bug===true):
+				exit("Err found @ Header: ".$link.'<|>LINE:'.$line.'<|>');
+			else:
+				exit(header("Location: ".$link));
+			endif;
+			
+		    session_write_close();
+		endif;	
+	} // EOF header_reload
+
+	
+	function breakpoint($line) {
+		if(!$this->file_line_debug):
+			return;
+		endif;
+		if ($this->display===true or $this->stop_at_bug===true):
+			$tmp=$this->stop_at_bug===true ? '(<font style="color=red">'.$this->err_code.'</font>)' : '';
+			echo $line.$tmp.'...';
+			if($this->stop_at_bug===true):
+				exit;
+			endif;
+		else: // render errors inside Error Box
+			// add code for global buffer! as currently is only for each file
+			$this->buffer[]=00;
+		endif;
+	}//EOF breakpoint
+
+	function start_file_debug() {
+		if(!$this->file_line_debug):
+			return;
+		endif;
+		if ($this->display===true):
+			echo '</br>['.$this->file.']SIF('.$this->code.')->BreakPoints: [ ';
+		else: // render errors inside Error Box
+			// add code for global buffer! as currently is only for each file
+			$this->buffer[]=00;
+		endif;
+	}//EOF start debug on a included file
+
+	function end_file_debug($line) {
+		if(!$this->file_line_debug):
+			return;
+		endif;
+		if ($this->display===true):
+			echo $line.' ]EIF('.$this->code.')';
+			if ($this->stop_at_bug===true):
+				session_write_close();
+				exit('Correct Errors Found to continue!');
+			endif;
+		else: // render errors inside Error Box
+			// add code for global buffer! as currently is only for each file
+			$this->buffer[]=00;
+		endif;
+	}//EOF start debug on a included file
+	
+}; //EOF class
+?>
