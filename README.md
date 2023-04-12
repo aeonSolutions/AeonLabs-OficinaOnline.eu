@@ -1,5 +1,7 @@
 # Simple website OficinaOnline.eu
 
+This particular software code features nonce token web authentication.
+
 <br />
 <br />
 
